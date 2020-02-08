@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    Function.prototype.call = function (obj, ...args) {
+      // console.log('call')
+      // this(...args)
+      if(obj === undefined || obj === null){
+        obj = windows
+      }
+      // 给obj添加一个方法
+      obj.tempFn = this
+      // 调用obj新添加的方法
+      const result = obj.tempFn(...args)
+      // 删除obj上的新方法
+      delete obj.tempFn
+      // 返回方法的返回值
+      return result 
+    }
+    Function.prototype.apply = function (obj, args) {
+      // console.log('apply')
+      if(obj === undefined || obj === null){
+        obj = windows
+      }
+      obj.tempFn = this
+      const result = obj.tempFn(...args)
+      delete obj.tempFn
+      return result
+    }
+    Function.prototype.bind = function (obj, ...args) {
+      // console.log('bind`')
+      // 返回一个新函数
+      return (...args2) => {
+        //调用原来的函数，指定this为obj，参数列表由args和args2依次组成
+        return this.call(obj, ...args, ...args2)
+      }
+    }
+
+    function fn(a, b) {
+      this.aaa = 3
+      console.log(a, b, this, arguments)
+    }
+    const obj = {m: 0}
+    // fn(1, 2)
+    // console.log(aaa)
+    // fn.call(obj, 1, 2)
+    // fn.apply(obj, [1, 2])
+    // fn.bind(obj)(1, 2)
+    // fn.bind(obj, 1)(3, 4)
+    // fn.bind(obj, 1, 2)(3, 4)
+    aUtils.call(fn, obj, 1, 2)
+    aUtils.apply(fn, obj, [1, 2])
+    aUtils.bind(fn, obj, 1)(3, 4)
+
+  </script>
+  
+</body>
+</html>

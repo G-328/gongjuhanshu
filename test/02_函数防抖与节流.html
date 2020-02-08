@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="throttle">测试函数节流</button>
+  <button id="debounce">测试函数防抖</button>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.15/lodash.js"></script>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    // 函数节流：让一个方法在规定的时间内只能执行一次(只有第一次触发有效)
+    // 函数防抖：当一个函数触发后，在规定的时间内没有再次触发该函数，则执行。如果触发就取消上一次的请求(只有最后一次触发有效)
+    function handleClick(event) {
+      console.log('点击事件', this, event)
+    }
+    // 函数节流 
+    // 生成节流函数的工具函数
+    function throttle(callback, delay) {
+      let pre = 0
+      return function (event) {
+        const current = Date.now()
+        if (current - pre > delay) {
+          // 调用真正处理事见的函数，this是事件源event.target
+          callback.call(this, event)
+          pre = current 
+        }
+      }
+    }
+
+    // 函数防抖
+    // 生成防抖函数得到工具函数
+    function debounce(callback, delay) {
+      let pre = 0
+      return function (event) {
+        // if (callback.timeoutId) {} 这个会查找原型链
+        if (callback.hasOwnProperty('timeoutId')) {  //不会查找原型链
+          clearTimeout(callback.timeoutId)
+        }
+        callback.timeoutId = setTimeout(() => {
+          callback.call(this, event)
+          delete callback.timeoutId
+        }, delay);
+      }
+    }
+
+    // document.getElementById('throttle').onclick = _.throttle(handleClick, 2000)
+    // document.getElementById('debounce').onclick = _.debounce(handleClick, 2000)
+    // document.getElementById('throttle').onclick = throttle(handleClick, 2000)
+    // document.getElementById('debounce').onclick = debounce(handleClick, 2000)
+    document.getElementById('throttle').onclick = aUtils.throttle(handleClick, 2000)
+    document.getElementById('debounce').onclick = aUtils.debounce(handleClick, 2000)
+
+
+  </script>
+  
+</body>
+</html>
