@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    function dec2bin(decNum) {
+      // 创建一个用于保存二进制位的stack
+      const stack = new aUtils.Stack()
+      // 对decNum不断除2取余，并保存stack中
+      while(decNum > 0) {
+        const remainder = decNum % 2  
+        stack.push(remainder)
+        decNum = Math.floor(decNum / 2)
+      }
+      // 依次取出stack中所有元素，并拼接成字符串
+      let result = ''
+      while (!stack.isEmpty()) {
+        result += stack.pop()
+      }
+      return result
+    }
+
+    console.log(dec2bin(10))
+    console.log(dec2bin(8))
+    console.log(dec2bin(333))
+
+
+
+  </script>
+</body>
+</html>

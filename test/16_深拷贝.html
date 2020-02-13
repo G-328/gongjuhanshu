@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    const obj1 = {
+      a: 1,
+      b: ['e', 'f', 'g'],
+      c: {h: {i: 2} },
+      d: function () {}
+    }
+    // 循坏引用：如obj1中b里面有c，c里面有b
+    obj1.b.push(obj1.c) // 将c添加到b中
+    obj1.c.j = obj1.b //将b添加到c中
+
+    /* let map = new Map()
+    let arr = map.get(obj1)
+    console.log(arr) */
+    
+    // const obj2 = aUtils.deepClone1(obj1)
+    // const obj3 = aUtils.deepClone2(obj1)
+    const obj4 = aUtils.deepClone3(obj1)
+    const obj5 = aUtils.deepClone4(obj1)
+
+    // console.log(obj2, obj1 === obj2, obj1.b === obj2.b);
+    // console.log(obj3, obj1 === obj3, obj1.b === obj3.b, obj1.d === obj3.d);
+    // console.log(obj4, obj1 === obj4, obj1.b === obj4.b, obj1.d === obj4.d);
+    
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    let pQueue = new aUtils.PriorityQueue()
+
+    pQueue.enqueue('abc', 5)
+    pQueue.enqueue('qwe', 6)
+    pQueue.enqueue('xyz', 10)
+    pQueue.enqueue('123', 2)
+
+    let size = pQueue.size()
+    for (let index = 0; index < size; index++) {
+      let item = pQueue.dequeue()
+      console.log(item.data, item.priority)
+      
+    }
+
+
+  </script>
+</body>
+</html>

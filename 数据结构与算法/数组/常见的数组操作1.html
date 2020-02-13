@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 静态方法：函数对象的方法称为静态方法
+    // from()/ of()/ isArray() 
+
+    //  from(): 从一个类似数组或可迭代对象创建一个新的，浅拷贝的数组实例
+    function f() {
+      return Array.from(arguments)
+    }
+    console.log(f(1, 2, 3))
+    const set = new Set(['foo', 'bar', 'baz', 'foo'])
+    console.log(set)
+    console.log(Array.from(set))
+
+    // of(): 创建一个具有可变数量参数的新数组实例
+    console.log(Array.of(3))
+    console.log(Array.of(1, 2, 3))
+
+    // isArray()
+    console.log(Array.isArray([1, 2, 3]), Array.isArray({foo: 123}))
+
+    // 更新的方法
+    // push()/ pop()/ unshift()/ shift()/ sort()/ reverse()/ splice()
+    // 遍历相关的声明方法(下面这些有共同点：都是高阶函数、都没有改变原数组)
+    // forEach()/ find()/ findIndex()/ filter()/ map()/ reduce()/ some()/ every()/ slice()
+    // 其它方法
+    // length()/ join()/ concat()(合并生成新的数组,不改变原来的)/ indexOf()/ lastIndexOf() 
+
+    
+
+
+  </script>
+</body>
+</html>

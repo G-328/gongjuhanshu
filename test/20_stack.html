@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    const stack1 = new aUtils.Stack()
+
+    stack1.push(6)
+    stack1.push(4)
+    stack1.pop()
+    stack1.push(3)
+    console.log(stack1.peek(), stack1.size(), stack1.isEmpty())
+
+    const stack2 = new aUtils.Stack()
+
+    stack2.push('a')
+    stack2.push('b')
+    stack2.pop()
+    console.log(stack1.peek(), stack1.size(), stack1.isEmpty())
+
+    console.log(stack2.peek(), stack2.size(), stack2.isEmpty())
+
+
+  </script>
+</body>
+</html>

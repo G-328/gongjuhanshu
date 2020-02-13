@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    let queue = new aUtils.Queue()
+
+    queue.enqueue('abc')
+    queue.enqueue('123')
+    queue.enqueue('xyz')
+    console.log(queue.front())
+    console.log(queue.isEmpty())
+    console.log(queue.size())
+
+    console.log(queue.dequeue())
+    console.log(queue.dequeue())
+    console.log(queue.dequeue())
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 其它方法
+    // length()/ join()/ concat()(合并生成新的数组,不改变原来的)/ indexOf()/ lastIndexOf()
+
+    /*
+    需求
+        1). 输出数组中元素的个数
+        2). 将数组中的所有元素用-连接成串
+        3). 与包含1,2,3的数组合并, 并与4合并
+        4). 得到1在数组中的第一个下标和最后一个下标
+    */
+   const arr = [1, 2, 3, 4, 6, 1, 5]
+    
+    // 1). 输出数组中元素的个数
+    console.log(arr.length)
+
+    // 2). 将数组中的所有元素用-连接成串
+    console.log(arr.join("-"))
+
+    // 3). 与包含1,2,3的数组合并, 并与4合并
+    console.log(arr.concat([1, 2, 3], 4))
+
+    // 4). 得到1在数组中的第一个下标和最后一个下标
+    console.log(arr.indexOf(1))
+    console.log(arr.lastIndexOf(1))
+
+  </script>
+</body>
+</html>

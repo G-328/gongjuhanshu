@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="../dist/20200208-zidingyi.js"></script>
+  <script>
+    const object1 = {
+      a: [{x: 2}, {y: 4}],
+      b: 1
+    }
+
+    const object2 = {
+      a: {z: 2},
+      b: [2, 3],
+      c: 'abc'
+    }
+    console.log(aUtils.mergeObject(object1, object2))
+  </script>
+</body>
+</html>

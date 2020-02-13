@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Person(name, age) {
+      this.name = name
+      this.age = age
+    }
+    Person.prototype.sayName = function () {
+      console.log('我的名字：', this.name)
+    }
+
+    function Student(name, age, price) {
+      Person.call(this, name, age)
+      this.price = price
+    }
+    
+    /* 
+    function Fn() {}
+    Fn.prototype = Person.prototype
+    */
+    function carte(proto) {
+      function Fn() {}
+      Fn.prototype = proto
+      return new Fn()
+    }
+
+    // Student.prototype = new Fn()
+    Student.prototype = carte(Person.prototype)
+    Student.prototype.constructor = Student
+    Student.prototype.sayPrice = function () {
+      console.log('我的月薪是：', this.price)
+    }
+
+    const p = new Student('Jack', 16, 10000)
+    console.log(p)
+
+
+
+
+
+  </script>
+</body>
+</html>
